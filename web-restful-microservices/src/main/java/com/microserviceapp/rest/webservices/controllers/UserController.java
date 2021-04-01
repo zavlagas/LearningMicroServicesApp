@@ -51,4 +51,15 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
+
+
+    //retrieveUser(int id)
+    @DeleteMapping("/{id}")
+    private User deleteUser(@PathVariable int id) {
+        Optional<User> retrievedUser = service.deleteById(id);
+        if (retrievedUser.isEmpty()) {
+            throw new UserNotFoundException("id-" + id);
+        }
+        return retrievedUser.get();
+    }
 }

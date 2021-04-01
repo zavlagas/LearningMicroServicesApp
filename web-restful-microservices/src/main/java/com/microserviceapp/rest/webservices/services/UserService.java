@@ -12,4 +12,6 @@ public interface UserService {
     User save(User user);
 
     Optional<User> find(int id);
+
+    Optional<User> deleteById(int id);
 }

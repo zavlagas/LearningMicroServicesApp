@@ -46,4 +46,12 @@ public class UserDaoImpl implements UserDao {
                         .findFirst()
         );
     }
+
+    @Override
+    public boolean deleteById(int id) {
+
+        boolean isDeleted = users.removeIf(user -> user.getId() == id);
+
+        return (isDeleted);
+    }
 }
